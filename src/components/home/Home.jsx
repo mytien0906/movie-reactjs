@@ -9,7 +9,6 @@ import {
 } from "../../server";
 import RBCarousel from "react-bootstrap-carousel";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
-
 import './Aminition/Home.css';
 import { Link } from "react-router-dom";
 export function Home() {
@@ -150,10 +149,7 @@ export function Home() {
               <nav>
                 <ul className="menu">
                   <li className="nav-hover"><a href="/">Home</a></li>
-                  <li className="nav-hover"><a href="/trending/all/day">Trending</a></li>
-                  <li className="nav-hover"><a href="/discover/tv">TV</a></li>
-                  <li className="nav-hover"><a href="/people/popular">People</a></li>
-                  <li className="nav-hover"><a href="/search">Search</a></li>
+
                 </ul>
               </nav>
             </div>
@@ -280,10 +276,7 @@ export function Home() {
             <div className="bg bg3"></div>
             <div className="col-md-5 col-sm-6" style={{ color: "#5a606b" }}>
               <h3>THÔNG TIN</h3>
-              <div className="email-title">
-                Email :
-                <a href="#">ngoctam2303001@gmail.com</a>
-              </div>
+              
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
                 perspiciatis? Numquam, enim illo voluptatum neque facere aut sed ut
