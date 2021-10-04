@@ -7,6 +7,7 @@ import {
   fetchTopratedMovie,
 
 } from "../../server";
+import { Footer } from "../Footer/Footer";
 import RBCarousel from "react-bootstrap-carousel";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import './Aminition/Home.css';
@@ -121,8 +122,8 @@ export function Home() {
           </Link>
         </div>
         <div className="mt-3">
-          <p style={{ fontWeight: "bolder" , textAlign: "center" }}>{item.title}</p>
-          <p style={{textAlign: "center" }}>Rated: {item.rating}</p>
+          <p style={{ fontWeight: "bolder", textAlign: "center" }}>{item.title}</p>
+          <p style={{ textAlign: "center" }}>Rated: {item.rating}</p>
           {/* <ReactStars
             count={item.rating}
             size={20}
@@ -264,7 +265,7 @@ export function Home() {
         </div>
       </div>
 
-      <hr className="mt-5" style={{ border: "1px solid #5a606b" }}></hr>
+      <hr className="mt-5" ></hr>
       <div className="footer-container">
 
         <div className="container">
@@ -274,7 +275,7 @@ export function Home() {
             <div className="bg"></div>
             <div className="bg bg2"></div>
             <div className="bg bg3"></div>
-            <div className="col-md-5 col-sm-6" style={{ color: "#5a606b" }}>
+            {/* <div className="col-md-5 col-sm-6" style={{ color: "#5a606b" }}>
               <h3>THÔNG TIN</h3>
               
               <p>
@@ -309,8 +310,8 @@ export function Home() {
                 </div>
                 <span>Youtube</span>
               </div>
-            </div>
-            <div className="col-md-7 col-sm-6" style={{ color: "#5a606b" }}>
+            </div> */}
+            {/* <div className="col-md-7 col-sm-6" style={{ color: "#5a606b" }}>
               <div className="main-top">
                 <div className="container">
                   <div className="row">
@@ -324,14 +325,11 @@ export function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
-
         </div>
       </div>
-
-
-
+      <Footer></Footer>
     </div>
   );
 }
