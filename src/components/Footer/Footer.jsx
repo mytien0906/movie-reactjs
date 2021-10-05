@@ -8,7 +8,7 @@ export function Footer() {
                 <div className="row">
                     <div className="col-lg-3 col-sm-6">
                         <div className="widget">
-                        <div className="image-logo"></div>
+                            <div className="image-logo"></div>
                             <p>7th Harley Place, London W1G 8LZ United Kingdom</p>
                             <h6><span>Call us: </span>(+880) 111 222 3456</h6>
                         </div>
@@ -63,6 +63,15 @@ export function Footer() {
                                 </a>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className="footer-container">
+                <div className="container">
+                    <div className="row">
+                        <div className="bg"></div>
+                        <div className="bg bg2"></div>
+                        <div className="bg bg3"></div>
                     </div>
                 </div>
             </div>

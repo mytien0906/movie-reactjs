@@ -1,6 +1,6 @@
 .footer {
     font-family: 'Poppins', sans-serif;
-    background: url('./image/footer-bg.png') no-repeat bottom center / cover;
+    /* background: url('./image/footer-bg.png') no-repeat bottom center / cover; */
     font-size: 14px;
     font-weight: 400;
     position: relative;
@@ -8,7 +8,7 @@
 }
 .footer::before {
     position: absolute;
-    background: #13151f;
+    /* background: #13151f; */
     top: 0;
     left: 0;
     content: "";
@@ -93,3 +93,24 @@ p{
     border: none;
     color: #fff;
 }
+
+.bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #5a3030bd 50%, #26224f 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+  
+  .bg3 {
+    animation-duration:5s;
+  }
