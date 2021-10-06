@@ -79,7 +79,7 @@ export function Home() {
           <Link to={`/movie/${value.id}`}>
             <img className="img-fluids" src={value.poster} alt={value.title}></img>
           </Link>
-          <a class="info" href={`/movie/${value.id}`}>Xem</a>
+          <Link className="info" href={`/movie/${value.id}`}>Xem</Link>
         </div>
         <div className="title-movie">
           {value.title}
