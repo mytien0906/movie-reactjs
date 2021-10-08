@@ -2,27 +2,50 @@ import React, { useState, useEffect } from "react";
 import {
     fetchPersonDetail,
     fetchTV,
+    fetchPeople,
 } from "../../server";
-import Carousel from "react-bootstrap/Carousel";
+
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import { Link } from "react-router-dom";
 import "../home/Aminition/Home.css";
+import { Footer } from "../Footer/Footer";
+import InfiniteCarousel from "react-leaf-carousel";
 
 export function Person({ match }) {
     let params = match.params;
     const [detail, setDetail] = useState([]);
     const [KnonwnPerson, setKnonwnPerson] = useState([]);
+    const [popularPersonTMDB, setpopularPersonTMDB] = useState([]);
     useEffect(() => {
         const fetchAPI = async () => {
             setDetail(await fetchPersonDetail(params.id));
             setKnonwnPerson(await fetchTV(params.id));
+            setpopularPersonTMDB(await fetchPeople());
         };
         fetchAPI();
     }, [params.id]);
-    // Bộ xử lý
-    const KwonList1 = KnonwnPerson.slice(0, 12).map((c, i) => {
+    //Những người nỗi tiếng trong TMDB
+    const popularPerson = popularPersonTMDB.slice(0, 12).map((item, index) => {
         return (
-            <div className="col-md-3 col-sm-6" key={i}>
+            <div className="col-md-3 col-sm-6" key={index}>
+                <div className="card">
+                    <Link to={`/person/${item.id}`}>
+                        <img className="img-fluid" src={item.img} alt={item.title}></img>
+                    </Link>
+                </div>
+                <div className="mt-3">
+                    <p style={{ fontWeight: "bolder" }}>{item.title}</p>
+                    <p style={{ fontWeight: "bolder" }}>{item.popularity}</p>
+                </div>
+
+            </div >
+
+        );
+    });
+    // Bộ xử lý
+    const KwonList1 = KnonwnPerson.slice(0, 24).map((c, i) => {
+        return (
+            <div key={i}>
                 <div className="card">
                     <Link to={`/movie/${c.id}`}>
                         <img className="img-fluid" src={c.poster} alt={c.title}></img>
@@ -33,6 +56,10 @@ export function Person({ match }) {
                 </div>
 
             </div >
+            // <Link to={`/movie/${c.id}`}>
+            //     <img className="img-fluid" src={c.poster} alt={c.title}></img>
+            //     <p style={{ fontWeight: "bolder" }}>{c.title}</p>
+            // </Link>
 
         );
     });
@@ -60,11 +87,7 @@ export function Person({ match }) {
                             </button>
                         </form>
                     </div>
-
                 </div>
-
-
-
                 <div className="detail-pofile">
                     <div className="row">
                         <div className="col-md-4">
@@ -101,98 +124,64 @@ export function Person({ match }) {
                             <p className='person-text-color'>
                                 Được biết đến với
                             </p>
-                            <div className="list">
-                                {KwonList1}
-                            </div>
+                            <RLCarousel />
 
+                        </div>
+                        <div className="title-popularPersonTMDB">
+                            <h2>Người nổi tiếng trong tuần TMDB</h2>
+                        </div>
+                        <div className="listPopularTMDB">
+                            {popularPerson}
                         </div>
                     </div>
                 </div>
+
             </div>
-            <div className="footer">
-                <div className="container">
-                    <div className="bg"></div>
-                    <div className="bg bg2"></div>
-                    <div className="bg bg3"></div>
-                    <hr className="mt-5" style={{ borderTop: "1px solid #5a606b" }}></hr>
-
-                    <div className="row mt-3 mb-5">
-                        <div className="col-md-8 col-sm-6" style={{ color: "#5a606b" }}>
-                            <h3>ABOUT ME</h3>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi
-                                error earum perspiciatis praesentium sint ipsum provident blanditiis
-                                pariatur necessitatibus voluptas, cum, atque iste eligendi autem,
-                                culpa cupiditate placeat facilis repellat.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
-                                perspiciatis? Numquam, enim illo voluptatum neque facere aut sed ut
-                                dolore nihil? Nulla sit, recusandae ea tenetur rerum deserunt sequi
-                                earum?
-                            </p>
-                            <div className="button">
-                                <div className="icon">
-                                    <i className="fab fa-facebook"></i>
-                                </div>
-                                <span>Facebook</span>
-                            </div>
-                            <div className="button">
-                                <div className="icon">
-
-                                    <i className="fab fa-instagram"></i>
-
-                                </div>
-                                <span>Instagram</span>
-                            </div>
-                            <div className="button">
-                                <div className="icon">
-
-                                    <i className="fab fa-twitter"></i>
-                                </div>
-                                <span>Twitter</span>
-                            </div>
-
-                            <div className="button">
-                                <div className="icon">
-                                    <i className="fab fa-youtube"></i>
-                                </div>
-                                <span>Youtube</span>
-                            </div>
-                        </div>
-                        <div className="col-md-4 col-sm-6" style={{ color: "#5a606b" }}>
-                            <h3>KEEP IN TOUCH</h3>
-                            <ul className="list-unstyled">
-                                <li>
-                                    <p>
-                                        <strong>
-                                            <i className="fas fa-map-marker-alt"></i> Address:
-                                        </strong>{" "}
-                                        city, state, country
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        <strong>
-                                            <i className="fas fa-map-marker-alt"></i> Phone:
-                                        </strong>{" "}
-                                        +01 00 00 00
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        <strong>
-                                            <i className="fas fa-envelope"></i> Email:
-                                        </strong>{" "}
-                                        info@infomail.com
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div className="footer1">
+                <Footer></Footer>
             </div>
+
         </div>
 
     );
+    function RLCarousel() {
+        return (
+            <InfiniteCarousel
+                breakpoints={[
+                    {
+                        breakpoint: 200,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 640,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3
+                        }
+                    }
+                ]}
+                lazyLoad={false}
+                autoCycle={true}
+                cycleInterval={3000}
+                showSides={true}
+                sidesOpacity={0.5}
+                sideSize={0.1}
+                slidesToScroll={1}
+                slidesToShow={5}
+                scrollOnDevice={true}
+            >
+                {KwonList1}
+            </InfiniteCarousel>
+        );
+    }
 }

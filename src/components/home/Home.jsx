@@ -7,9 +7,9 @@ import {
   fetchTopratedMovie,
 
 } from "../../server";
+import { Footer } from "../Footer/Footer";
 import RBCarousel from "react-bootstrap-carousel";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
-
 import './Aminition/Home.css';
 import { Link } from "react-router-dom";
 export function Home() {
@@ -147,10 +147,7 @@ export function Home() {
               <nav>
                 <ul className="menu">
                   <li className="nav-hover"><a href="/">Home</a></li>
-                  <li className="nav-hover"><a href="/trending/all/day">Trending</a></li>
                   <li className="nav-hover"><a href="/discover/tv">TV</a></li>
-                  <li className="nav-hover"><a href="/people/popular">People</a></li>
-                  <li className="nav-hover"><a href="/search">Search</a></li>
                 </ul>
               </nav>
             </div>
@@ -264,71 +261,9 @@ export function Home() {
         </div>
       </div>
 
-      <hr className="mt-5" style={{ border: "1px solid #5a606b" }}></hr>
-      <div className="footer-container">
-        <div className="container">
-          <div className="row">
-            <div className="bg"></div>
-            <div className="bg bg2"></div>
-            <div className="bg bg3"></div>
-            <div className="col-md-5 col-sm-6" style={{ color: "#5a606b" }}>
-              <h3>THÔNG TIN</h3>
-              <div className="email-title">
-                Email :
-                <a href="#">ngoctam2303001@gmail.com</a>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
-                perspiciatis? Numquam, enim illo voluptatum neque facere aut sed ut
-                dolore nihil? Nulla sit, recusandae ea tenetur rerum deserunt sequi
-                earum?
-              </p>
-              <div className="button">
-                <div className="icon">
-                  <i className="fab fa-facebook"></i>
-                </div>
-                <span>Facebook</span>
-              </div>
-              <div className="button">
-                <div className="icon">
-                  <i className="fab fa-instagram"></i>
-                </div>
-                <span>Instagram</span>
-              </div>
-              <div className="button">
-                <div className="icon">
-
-                  <i className="fab fa-twitter"></i>
-                </div>
-                <span>Twitter</span>
-              </div>
-
-              <div className="button">
-                <div className="icon">
-                  <i className="fab fa-youtube"></i>
-                </div>
-                <span>Youtube</span>
-              </div>
-            </div>
-            <div className="col-md-7 col-sm-6" style={{ color: "#5a606b" }}>
-              <div className="main-top">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-12">
-                      <div className="bg-blog">
-                        <div className="pic-ctn bore">
-                          {images}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
+      <hr className="mt-5" ></hr>
+      
+      <Footer></Footer>
     </div>
   );
 }

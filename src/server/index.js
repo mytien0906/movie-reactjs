@@ -1,19 +1,24 @@
 import axios from 'axios';
 
+// Connect
 const apiKey = 'a4999a28333d1147dbac0d104526337a';
 const url = 'https://api.themoviedb.org/3';
+
+// Play movie
 const nowPlayingUrl = `${url}/movie/now_playing`;
+// Top rate moving
 const topratedUrl = `${url}/movie/top_rated`;
-const movieUrl = `${url}/movie`;
-const personsUrl = `${url}/person`;
+// Categories movie
 const genreUrl = `${url}/genre/movie/list`;
+// List movie
 const moviesUrl = `${url}/discover/movie`;
-
+// Person week
 const personUrl = `${url}/trending/person/week`;
-const treddingUrl = `${url}/trending/all/day`;
-
 const peopleUrl = `${url}/person/popular`;
-
+const personsUrl = `${url}/person`;
+const movieUrl = `${url}/movie`;
+const treddingUrl = `${url}/trending/all/day`;
+// TV
 const tvsUrl = `${url}/discover/tv`;
 const discoverUrl = `${url}/tv/airing_today`;
 const tvUrl = `${url}/tv`;
@@ -22,7 +27,7 @@ const tvPopular = `${url}/tv/popular`;
 const tvTopRate = `${url}/tv/top_rated`;
 const genereTVUrl = `${url}/genre/tv/list`;
 
-
+// Page home : 
 export const fetchMovies = async () => {
     try {
         const { data } = await axios.get(nowPlayingUrl, {
@@ -47,7 +52,6 @@ export const fetchMovies = async () => {
         return modifiedData;
     } catch (error) { }
 }
-
 export const fetchGenre = async () => {
     try {
         const { data } = await axios.get(genreUrl, {
@@ -64,7 +68,6 @@ export const fetchGenre = async () => {
         return modifiedData;
     } catch (error) { }
 }
-
 export const fetchMovieByGenre = async (genre_ids) => {
     try {
         const { data } = await axios.get(moviesUrl, {
@@ -89,7 +92,6 @@ export const fetchMovieByGenre = async (genre_ids) => {
         return modifiedData;
     } catch (error) { }
 }
-
 export const fetchPersons = async () => {
     try {
         const { data } = await axios.get(personUrl, {
@@ -107,7 +109,6 @@ export const fetchPersons = async () => {
         return modifiedData;
     } catch (error) { }
 }
-
 export const fetchTopratedMovie = async () => {
     try {
         const { data } = await axios.get(topratedUrl, {
@@ -134,17 +135,6 @@ export const fetchTopratedMovie = async () => {
     }
 }
 
-export const fetchMovieDetail = async (id) => {
-    try {
-        const { data } = await axios.get(`${movieUrl}/${id}`, {
-            params: {
-                api_key: apiKey,
-                language: 'en_US'
-            }
-        });
-        return data;
-    } catch (error) { }
-}
 // Chi tiết tv
 export const fetchTVDetail = async (id) => {
     try {

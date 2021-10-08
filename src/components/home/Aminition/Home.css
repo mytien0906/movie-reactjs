@@ -465,7 +465,7 @@
 
   position: relative; /* declare parent for inner child absolute */
   transform-style: preserve-3d; /* to tranform with 3d effect */
-  animation: flip 10s linear infinite;
+  animation: flip 20s linear infinite;
   transition: transform 5s;
 }
 .face {
@@ -1093,4 +1093,18 @@ h1 {
 }
 .carousel-indicators .active {
 background: #428bca;
+}
+.listPopularTMDB {
+  display: flex;
+  overflow: auto;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 5px #443434;
+  border-radius: 20px;
+}
+.title-popularPersonTMDB {
+  margin: 40px;
+}
+.footer1 {
+    margin-top: 800px;
 }

@@ -10,13 +10,15 @@ import { Person } from "./components/Person/Person";
 // import { DiscoverDetail } from "./components/TVDetail/DiscoverDetail";
 // import { Seasons } from "./components/TV/Session/Seasons";
 // import  Search  from "./components/Search/Search";
+//TV
+import { Discover } from "./components/TV/Discover";
 export function App() {
   return (
     
     <main>
       <Switch>
         <Route path="/" component={Home} exact />
-        {/* <Route path="/discover/tv" component={Discover} /> */}
+        <Route path="/discover/tv" component={Discover} />
         {/* <Route path="/tv/:id" component={DiscoverDetail} /> */}
         {/* <Route path="/trending/all/day" component={Tredding} /> */}
         {/* <Route path="/people/popular" component={People} /> */}
