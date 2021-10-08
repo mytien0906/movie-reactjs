@@ -18,7 +18,7 @@ export function App() {
     <main>
       <Switch>
         <Route path="/" component={Home} exact />
-        {/* <Route path="/discover/tv" component={Discover} /> */}
+        <Route path="/discover/tv" component={Discover} />
         {/* <Route path="/tv/:id" component={DiscoverDetail} /> */}
         {/* <Route path="/trending/all/day" component={Tredding} /> */}
         {/* <Route path="/people/popular" component={People} /> */}

@@ -66,15 +66,9 @@ export function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="footer-container">
-                <div className="container">
-                    <div className="row">
-                        <div className="bg"></div>
-                        <div className="bg bg2"></div>
-                        <div className="bg bg3"></div>
-                    </div>
-                </div>
-            </div>
+            <div className="bg"></div>
+            <div className="bg bg2"></div>
+            <div className="bg bg3"></div>
         </footer>
     )
 }
