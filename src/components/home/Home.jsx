@@ -64,7 +64,7 @@ export function Home() {
 
   const genreList = genres.map((item, index) => {
     return (
-      <nav className="link-effect-1">
+      <nav className="link-effect-1" key={index}>
         <div className="Link-hover" key={index} onClick={() => {
           handleGenreClick(item.id);
         }}><span data-hover={item.name}> {item.name}</span></div>
@@ -80,13 +80,11 @@ export function Home() {
           <Link to={`/movie/${value.id}`}>
             <img className="img-fluids" src={value.poster} alt={value.title}></img>
           </Link>
-          <a class="info" href={`/movie/${value.id}`}>Xem</a>
+          <a className="info" href={`/movie/${value.id}`}>Xem</a>
         </div>
         <div className="title-movie">
           {value.title}
-
         </div>
-
       </div>
     );
   });
@@ -129,19 +127,18 @@ export function Home() {
             size={20}
             color1={"#f4c10f"}
           ></ReactStars> */}
-        </div>
+        </div >
       </div>
     );
   });
   // Lấy các tấm hình:
-  const images = movieByGenre.slice(0, 12).map((i) => {
+  const images = movieByGenre.slice(0, 12).map((i, index) => {
     return (
-      <img src={i.poster} alt={i.title} className="pic" />
+      <img src={i.poster} alt={i.title} className="pic" key={index} />
     );
   });
 
   return (
-
     <div className="main-container">
       <div className="header">
         <div className="container">
@@ -171,7 +168,6 @@ export function Home() {
           </div>
         </div>
       </div>
-
 
       <div className="baner-movie">
         <div className="container">

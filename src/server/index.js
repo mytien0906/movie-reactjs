@@ -14,7 +14,7 @@ const genreUrl = `${url}/genre/movie/list`;
 const moviesUrl = `${url}/discover/movie`;
 // Person week
 const personUrl = `${url}/trending/person/week`;
-
+const peopleUrl = `${url}/person/popular`;
 const personsUrl = `${url}/person`;
 const movieUrl = `${url}/movie`;
 const treddingUrl = `${url}/trending/all/day`;
@@ -471,6 +471,7 @@ export const fetchSessionTV = async (id) => {
             id: c['id'],
             name: c['name'],
             img: 'https://image.tmdb.org/t/p/w200' + c['poster_path'],
+            img2: 'https://image.tmdb.org/t/p/w200' + c['poster_path'],
             overview: c['overview'],
             episode_count: c['episode_count'],
             date: c['air_date'],
@@ -524,4 +525,28 @@ export const fetchSimilarTV = async (id) => {
 
         return modifiedData;
     } catch (error) { }
+}
+// Phần Person
+// Lấy danh sách các diễn viên:
+export const fetchPeople = async () => {
+    try {
+        const { data } = await axios.get(peopleUrl, {
+            params: {
+                api_key: apiKey,
+                language: 'en_US',
+                page: 1
+            }
+        })
+        const posterUrl = 'https://image.tmdb.org/t/p/original/';
+        const modifiedData = data['results'].map((m) => ({
+            id: m['id'],
+            img: posterUrl + m['profile_path'],
+            title: m['name'],
+            name:m['title'],
+            popularity:m['popularity'],
+        }))
+        return modifiedData;
+    } catch (error) {
+
+    }
 }
