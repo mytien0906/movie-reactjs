@@ -1,0 +1,18 @@
+.Session {
+    margin: 20px auto;
+    border-bottom: 1px solid;
+    padding: 10px;
+}
+.title-session-2 {
+    position: relative;
+    top: 5px;
+}
+.img-seasons {
+    width: 120px;
+    height: 160px;
+     transition: 1s;
+}
+.baner-seasons {
+    border: 1px solid wheat;
+    background: white;
+}

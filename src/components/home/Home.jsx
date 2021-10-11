@@ -7,6 +7,7 @@ import {
   fetchTopratedMovie,
 
 } from "../../server";
+import { Footer } from "../Footer/Footer";
 import RBCarousel from "react-bootstrap-carousel";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import './Aminition/Home.css';
@@ -63,7 +64,7 @@ export function Home() {
 
   const genreList = genres.map((item, index) => {
     return (
-      <nav className="link-effect-1">
+      <nav className="link-effect-1" key={index}>
         <div className="Link-hover" key={index} onClick={() => {
           handleGenreClick(item.id);
         }}><span data-hover={item.name}> {item.name}</span></div>
@@ -79,13 +80,15 @@ export function Home() {
           <Link to={`/movie/${value.id}`}>
             <img className="img-fluids" src={value.poster} alt={value.title}></img>
           </Link>
+<<<<<<< HEAD
           <Link className="info" href={`/movie/${value.id}`}>Xem</Link>
+=======
+          <a className="info" href={`/movie/${value.id}`}>Xem</a>
+>>>>>>> Trang
         </div>
         <div className="title-movie">
           {value.title}
-
         </div>
-
       </div>
     );
   });
@@ -121,26 +124,25 @@ export function Home() {
           </Link>
         </div>
         <div className="mt-3">
-          <p style={{ fontWeight: "bolder" , textAlign: "center" }}>{item.title}</p>
-          <p style={{textAlign: "center" }}>Rated: {item.rating}</p>
+          <p style={{ fontWeight: "bolder", textAlign: "center" }}>{item.title}</p>
+          <p style={{ textAlign: "center" }}>Rated: {item.rating}</p>
           {/* <ReactStars
             count={item.rating}
             size={20}
             color1={"#f4c10f"}
           ></ReactStars> */}
-        </div>
+        </div >
       </div>
     );
   });
   // Lấy các tấm hình:
-  const images = movieByGenre.slice(0, 12).map((i) => {
+  const images = movieByGenre.slice(0, 12).map((i, index) => {
     return (
-      <img src={i.poster} alt={i.title} className="pic" />
+      <img src={i.poster} alt={i.title} className="pic" key={index} />
     );
   });
 
   return (
-
     <div className="main-container">
       <div className="header">
         <div className="container">
@@ -149,7 +151,7 @@ export function Home() {
               <nav>
                 <ul className="menu">
                   <li className="nav-hover"><a href="/">Home</a></li>
-
+                  <li className="nav-hover"><a href="/discover/tv">TV</a></li>
                 </ul>
               </nav>
             </div>
@@ -170,7 +172,6 @@ export function Home() {
           </div>
         </div>
       </div>
-
 
       <div className="baner-movie">
         <div className="container">
@@ -264,74 +265,9 @@ export function Home() {
         </div>
       </div>
 
-      <hr className="mt-5" style={{ border: "1px solid #5a606b" }}></hr>
-      <div className="footer-container">
-
-        <div className="container">
-
-
-          <div className="row">
-            <div className="bg"></div>
-            <div className="bg bg2"></div>
-            <div className="bg bg3"></div>
-            <div className="col-md-5 col-sm-6" style={{ color: "#5a606b" }}>
-              <h3>THÔNG TIN</h3>
-              
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
-                perspiciatis? Numquam, enim illo voluptatum neque facere aut sed ut
-                dolore nihil? Nulla sit, recusandae ea tenetur rerum deserunt sequi
-                earum?
-              </p>
-              <div className="button">
-                <div className="icon">
-                  <i className="fab fa-facebook"></i>
-                </div>
-                <span>Facebook</span>
-              </div>
-              <div className="button">
-                <div className="icon">
-                  <i className="fab fa-instagram"></i>
-                </div>
-                <span>Instagram</span>
-              </div>
-              <div className="button">
-                <div className="icon">
-
-                  <i className="fab fa-twitter"></i>
-                </div>
-                <span>Twitter</span>
-              </div>
-
-              <div className="button">
-                <div className="icon">
-                  <i className="fab fa-youtube"></i>
-                </div>
-                <span>Youtube</span>
-              </div>
-            </div>
-            <div className="col-md-7 col-sm-6" style={{ color: "#5a606b" }}>
-              <div className="main-top">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-12">
-                      <div className="bg-blog">
-                        <div className="pic-ctn bore">
-                          {images}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-
-
+      <hr className="mt-5" ></hr>
+      
+      <Footer></Footer>
     </div>
   );
 }
