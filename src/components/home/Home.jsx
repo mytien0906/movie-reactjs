@@ -77,14 +77,10 @@ export function Home() {
     return (
       <div className="col-md-2 col-sm-6" key={i}>
         <div className="card-img">
-          <Link to={`/movie/${value.id}`}>
+          <Link to={`/detail-movie/${value.id}`}>
             <img className="img-fluids" src={value.poster} alt={value.title}></img>
           </Link>
-<<<<<<< HEAD
-          <Link className="info" href={`/movie/${value.id}`}>Xem</Link>
-=======
-          <a className="info" href={`/movie/${value.id}`}>Xem</a>
->>>>>>> Trang
+          <Link className="info" href={`/detail-movie/${value.id}`}>Xem</Link>
         </div>
         <div className="title-movie">
           {value.title}

@@ -557,19 +557,23 @@
   gap: 1rem;
   -webkit-overflow-scrolling: touch;
 }
-.name span {
-  display: inline-block;
-  float: right;
-  margin-right: -40px;
-}
+
 .list-similar {
   display: flex;
   border-radius: 20px;
 }
 .name {
-  font-size: 12px;
+  font-size: 14px;
   position: relative;
-  top: 20px;
+  top: 28px;
+  display: flex;
+  justify-content: space-between;
+}
+.name p:first-child{
+  white-space: nowrap;
+ text-overflow: ellipsis;
+ overflow: hidden;
+ max-width: 80%;
 }
 .img-Recommendations {
   display: block;
